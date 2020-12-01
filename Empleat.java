@@ -3,13 +3,11 @@ package portAventura_atraccions;
 public class Empleat extends Persona implements IEmpleat{
 	private int idEmpleat;
 	private ESalariEmpleat salari;
-	private String tipusTreball;
 	
-	public Empleat(String nom, String cognom, String DNI, int telefon, int idEmpleat, ESalariEmpleat salari, String tipusTreball) {
-		super(nom, cognom, DNI, telefon);
+	public Empleat(String nom, String cognom, String DNI, int telefon, int idEmpleat, ESalariEmpleat salari,double altura) {
+		super(nom, cognom, DNI, telefon,altura);
 		this.idEmpleat = idEmpleat;
 		this.salari = salari;
-		this.tipusTreball = tipusTreball;
 	}
 
 	public int getIdEmpleat() {
@@ -28,31 +26,30 @@ public class Empleat extends Persona implements IEmpleat{
 		this.salari = salari;
 	}
 
-	public String getTipusTreball() {
-		return tipusTreball;
-	}
-
-	public void setTipusTreball(String tipusTreball) {
-		this.tipusTreball = tipusTreball;
-	}
-	
 	@Override
-	public void comprovarSeguretat() {
-		
+	public String toString() {
+		return "Empleat [idEmpleat=" + idEmpleat + ", salari=" + salari + ", tipusTreball=" + ", nom="
+				+ nom + ", cognom=" + cognom + ", DNI=" + DNI + ", telefon=" + telefon + ", altura=" + altura + "]";
 	}
 
 	@Override
-	public void comprovarAlçada() {
-
-	}
-
-	@Override
-	public void indicarAtraccio() {
-
-	}
+	public String comprovarSeguretat(Atraccio a){
+        return a.getSeguretatAtraccio().toString();
+    }
 
 	@Override
-	public void vendreEntrades() {
+	public String comprovarAltura(Visitant v, Atraccio a){
+        if(v.getAltura()>=a.getAlturaMin()){
+            return "OK";
+        }
+        return "OUT";
+    }
 
-	}
+	@Override
+	public String comprovaEntrada(Visitant v){
+        if(v.getEntrada()!=null){
+            return "OK";
+        }
+        return "Fer fora";
+    }
 }

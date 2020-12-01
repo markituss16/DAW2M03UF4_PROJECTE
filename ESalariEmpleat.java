@@ -5,5 +5,8 @@ public enum ESalariEmpleat {
 	MEDIO(900,1400),
 	INFERIOR(300,800);
 
-	ESalariEmpleat(int i, int j) {}
+	ESalariEmpleat(int i, int j) {
+	}
+
+	
 }

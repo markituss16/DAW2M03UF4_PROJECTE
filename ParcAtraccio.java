@@ -1,11 +1,12 @@
 package portAventura_atraccions;
-import java.sql.Time;
 import java.util.*;
 
 public class ParcAtraccio {
 	private ArrayList<Entrada> entrades = new ArrayList<Entrada>();
+    private ArrayList<Visitant> visitants = new ArrayList<Visitant>();
+    private ArrayList<Empleat> empleats = new ArrayList<Empleat>();
 	private String nom = new String();
-	private Time horariObertura;
+	private int horariObertura;
 	private int numVisitants;
 	private int nombreAtraccions;
 	
@@ -14,65 +15,65 @@ public class ParcAtraccio {
 	}
 
 	/*GETTERS I SETTERS*/
-	public String getNom() {
-		return this.nom;
-	}
-	
-	public ArrayList<Date> getDadesEntrades(){
-		ArrayList<Date> data = new ArrayList<Date>();
-		for (Entrada e : this.entrades) {
-			if (e.getEstatCompra() == false) {
-				System.out.println("ID entrada:" + e.getIdEntrada());
-				data.add(e.getData());
-			}
-		}
-		return data;
-	}
-	
-	public int getEntrada(Date data) {
-		int resultat = 0;
-		for (Entrada e : this.entrades) {
-			if (e.getData() == data) {
-				resultat++;
-			}
-		}
-		return resultat;
-	}
-	
-	public Entrada getEntrada(long id) {
-		Entrada resultat = null;
-		for (Entrada e : this.entrades) {
-			if (e.getIdEntrada() == id) {
-				resultat = e;
-			}
-		}
-		return resultat;
-	}
-	
-	/*public Time getHorariObertura() {
-		return horariObertura;
-	}
 
-	public void setHorariObertura(Time horariObertura) {
-		this.horariObertura = horariObertura;
-	}
+    public ArrayList<Entrada> getEntrades() {
+        return entrades;
+    }
 
-	public int getNumVisitants() {
-		return numVisitants;
-	}
+    public void setEntrades(ArrayList<Entrada> entrades) {
+        this.entrades = entrades;
+    }
 
-	public void setNumVisitants(int numVisitants) {
-		this.numVisitants = numVisitants;
-	}
+    public ArrayList<Visitant> getVisitants() {
+        return visitants;
+    }
 
-	public int getNombreAtraccions() {
-		return nombreAtraccions;
-	}
+    public void setVisitants(ArrayList<Visitant> visitants) {
+        this.visitants = visitants;
+    }
 
-	public void setNombreAtraccions(int nombreAtraccions) {
-		this.nombreAtraccions = nombreAtraccions;
-	}*/
-	
+    public ArrayList<Empleat> getEmpleats() {
+        return empleats;
+    }
+
+    public void setEmpleats(ArrayList<Empleat> empleats) {
+        this.empleats = empleats;
+    }
+    
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getHorariObertura() {
+        return horariObertura;
+    }
+
+    public void setHorariObertura(int horariObertura) {
+        this.horariObertura = horariObertura;
+    }
+
+    public int getNumVisitants() {
+        assignaNumVisitants();
+        return numVisitants;
+    }
+
+    public int getNombreAtraccions() {
+        return nombreAtraccions;
+    }
+
+    public void setNombreAtraccions(int nombreAtraccions) {
+        this.nombreAtraccions = nombreAtraccions;
+    }
+
+    @Override
+    public String toString() {
+        return "ParcAtraccio{" + "entrades=" + entrades + ", visitants=" + visitants + ", empleats=" + empleats + ", nom=" + nom + ", horariObertura=" + horariObertura + ", numVisitants=" + numVisitants + ", nombreAtraccions=" + nombreAtraccions + '}';
+    }
+
 	/*MÈTODES PROPIS*/
 	
 	public void afegirEntrada(Entrada e) {
@@ -92,5 +93,8 @@ public class ParcAtraccio {
 			ex.printStackTrace();
 			System.out.println("No s'ha trobat l'entrada. Compra'n una!");
 		}
-	}	
+	}
+        private void assignaNumVisitants(){
+            this.numVisitants = visitants.size();
+        }
 }

@@ -1,8 +1,7 @@
 package portAventura_atraccions;
 
 public interface IEmpleat {
-	void comprovarSeguretat();
-	void comprovarAlçada();
-	void indicarAtraccio();
-	void vendreEntrades();
+	String comprovarSeguretat(Atraccio a);
+	String comprovarAltura(Visitant v, Atraccio a);
+	String comprovaEntrada(Visitant v);
 }

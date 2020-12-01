@@ -1,15 +1,13 @@
 package portAventura_atraccions;
-import java.util.Date;
 
 public class Atraccio implements Comparable<Atraccio> {
 	private int idAtraccio;
 	private ENomAtraccio nomAtraccio;
 	private ESeguretatAtraccio seguretatAtraccio;
-	private Date dataConstruccio;
 	private int quantitatGent;
+	private int alturaMin;
 	
-	public Atraccio(int idAtraccio, ENomAtraccio nomAtraccio, ESeguretatAtraccio seguretatAtraccio,
-			int quantitatGent) {
+	public Atraccio(int idAtraccio, ENomAtraccio nomAtraccio, ESeguretatAtraccio seguretatAtraccio,int quantitatGent) {
 		this.idAtraccio = idAtraccio;
 		this.nomAtraccio = nomAtraccio;
 		this.seguretatAtraccio = seguretatAtraccio;
@@ -36,16 +34,8 @@ public class Atraccio implements Comparable<Atraccio> {
 		return seguretatAtraccio;
 	}
 
-	public void setTipusAtraccio(ESeguretatAtraccio seguretatAtraccio) {
+	public void setSeguretatAtraccio(ESeguretatAtraccio seguretatAtraccio) {
 		this.seguretatAtraccio = seguretatAtraccio;
-	}
-
-	public Date getDataConstruccio() {
-		return dataConstruccio;
-	}
-
-	public void setDataConstruccio(Date dataConstruccio) {
-		this.dataConstruccio = dataConstruccio;
 	}
 
 	public int getQuantitatGent() {
@@ -56,10 +46,18 @@ public class Atraccio implements Comparable<Atraccio> {
 		this.quantitatGent = quantitatGent;
 	}
 	
+	public int getAlturaMin() {
+		return alturaMin;
+	}
+
+	public void setAlturaMin(int alturaMin) {
+		this.alturaMin = alturaMin;
+	}
+
 	@Override
 	public String toString() {
 		return "Atraccio [idAtraccio=" + idAtraccio + ", nomAtraccio=" + nomAtraccio + ", seguretatAtraccio="
-				+ seguretatAtraccio + ", dataConstruccio=" + dataConstruccio + ", quantitatGent=" + quantitatGent + "]";
+				+ seguretatAtraccio + ", quantitatGent=" + quantitatGent + "]";
 	}
 
 	/*Mètodes propis*/
@@ -73,7 +71,7 @@ public class Atraccio implements Comparable<Atraccio> {
 				System.out.println("Seguretat no corresponent a l'atracció seleccionada.");
 			}
 			break;
-		case SHAMBALA:
+		case SHAMBHALA:
 			if(seguretatAtraccio == ESeguretatAtraccio.PROTECCIO_PARCIAL) {
 				this.seguretatAtraccio = seguretatAtraccio;
 				System.out.println("Seguretat corresponent a l'atracció seleccionada. ");

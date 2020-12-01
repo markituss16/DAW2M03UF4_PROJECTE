@@ -5,13 +5,15 @@ public abstract class Persona {
 	protected String cognom;
 	protected String DNI;
 	protected int telefon;
+    protected double altura;
 	
-	public Persona(String nom, String cognom, String DNI, int telefon) {
+	public Persona(String nom, String cognom, String DNI, int telefon, double altura) {
 		super();
 		this.nom = nom;
 		this.cognom = cognom;
 		this.DNI = DNI;
 		this.telefon = telefon;
+        this.altura = altura;
 	}
 									
 	public String getNom() {
@@ -46,14 +48,16 @@ public abstract class Persona {
 		this.telefon = telefon;
 	}
 
+    public double getAltura() {
+        return altura;
+    }
+
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+        
 	public void saludar() {
 		System.out.println("Bones!");
 	}
-
-	@Override
-	public String toString() {
-		return "Persona [nom=" + nom + ", cognom=" + cognom + ", DNI=" + DNI + ", telefon=" + telefon + "]";
-	}
-	
 	
 }

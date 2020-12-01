@@ -1,31 +1,28 @@
 package portAventura_atraccions;
 
-import java.util.Date;
-
 public class ExpressPremium extends Entrada {
-	private boolean primeraFila;
-	private boolean pulsera;
+	private int primeraFila = 1;
 	
-	public ExpressPremium(int idEntrada, Date data, String categoriaEntrada, double preu, boolean estatCompra) {
-		super(idEntrada, data, categoriaEntrada, preu, estatCompra);
-	}
-
-	public boolean isPrimeraFila() {
-		return primeraFila;
-	}
-
-	public void setPrimeraFila(boolean primeraFila) {
+	public ExpressPremium(int idEntrada,String categoriaEntrada, double preu, boolean estatCompra,int primeraFila) {
+		super(idEntrada,categoriaEntrada, preu, estatCompra);
 		this.primeraFila = primeraFila;
 	}
 
-	public boolean isPulsera() {
-		return pulsera;
+	public int getPrimeraFila() {
+		return primeraFila;
 	}
 
-	public void setPulsera(boolean pulsera) {
-		this.pulsera = pulsera;
+	public void setPrimeraFila(int primeraFila) {
+		this.primeraFila = primeraFila;
 	}
-	
 
-
+	public void vegadesPrimeraFila(Visitant v) {
+		if(v.getEntrada() instanceof ExpressPremium) {
+			if(v.getPrimeraFila() >= primeraFila) {
+				System.out.println("Ja no hi pots accedir a la primera fila!");
+			}else {
+				System.out.println("Encara hi pots aprofitar!");
+			}
+		}
+	}
 }
