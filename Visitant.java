@@ -69,7 +69,7 @@ public class Visitant extends Persona {
 
     @Override
     public String toString() {
-        return "Visitant{" + "numVisitant=" + numVisitant + ", entrada=" + entrada + ", diners=" + diners + ", pujades=" + pujades + ", primeraFila=" + primeraFila + ", altura=" + altura + '}';
+    	return "El número de visitant és " + numVisitant + " amb l'entrada " + entrada + ", té " + diners + ", porta " + pujades + "pujades, ha pujat a primera fila " + primeraFila + "vegades i medeix " + altura + ".";
     }
 
     /**

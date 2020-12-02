@@ -5,13 +5,14 @@ public class Atraccio implements Comparable<Atraccio> {
 	private ENomAtraccio nomAtraccio;
 	private ESeguretatAtraccio seguretatAtraccio;
 	private int quantitatGent;
-	private int alturaMin;
+	private double alturaMin;
 	
-	public Atraccio(int idAtraccio, ENomAtraccio nomAtraccio, ESeguretatAtraccio seguretatAtraccio,int quantitatGent) {
+	public Atraccio(int idAtraccio, ENomAtraccio nomAtraccio,int quantitatGent, double alturaMin) {
 		this.idAtraccio = idAtraccio;
 		this.nomAtraccio = nomAtraccio;
-		this.seguretatAtraccio = seguretatAtraccio;
 		this.quantitatGent = quantitatGent;
+		this.alturaMin = alturaMin;
+                atraccioSeguretat();
 	}
 
 	public int getIdAtraccio() {
@@ -46,11 +47,11 @@ public class Atraccio implements Comparable<Atraccio> {
 		this.quantitatGent = quantitatGent;
 	}
 	
-	public int getAlturaMin() {
+	public double getAlturaMin() {
 		return alturaMin;
 	}
 
-	public void setAlturaMin(int alturaMin) {
+	public void setAlturaMin(double alturaMin) {
 		this.alturaMin = alturaMin;
 	}
 
@@ -60,60 +61,48 @@ public class Atraccio implements Comparable<Atraccio> {
 				+ seguretatAtraccio + ", quantitatGent=" + quantitatGent + "]";
 	}
 
-	/*Mètodes propis*/
-	public void atraccioSeguretat(ESeguretatAtraccio seguretatAtraccio) {
+    /**
+     * Aquest mètode s'encarrega d'assignar el tipus de seguretat a cada nom d'atracció.
+     */
+	private void atraccioSeguretat() {
 		switch (nomAtraccio) {
 		case DRAGON_KHAN:
-			if(seguretatAtraccio == ESeguretatAtraccio.PROTECCIO_TOTAL) {
-				this.seguretatAtraccio = seguretatAtraccio;
-				System.out.println("Seguretat corresponent a l'atracció seleccionada. ");
-			}else {
-				System.out.println("Seguretat no corresponent a l'atracció seleccionada.");
-			}
+			this.seguretatAtraccio = ESeguretatAtraccio.PROTECCIO_TOTAL;
 			break;
 		case SHAMBHALA:
-			if(seguretatAtraccio == ESeguretatAtraccio.PROTECCIO_PARCIAL) {
-				this.seguretatAtraccio = seguretatAtraccio;
-				System.out.println("Seguretat corresponent a l'atracció seleccionada. ");
-			}else {
-				System.out.println("Seguretat no corresponent a l'atracció seleccionada.");
-			}
+			this.seguretatAtraccio = ESeguretatAtraccio.PROTECCIO_PARCIAL;
 			break;
 		case TUTUKI_SPLASH:
-			if(seguretatAtraccio == ESeguretatAtraccio.SENSE_PROTECCIO) {
-				this.seguretatAtraccio = seguretatAtraccio;
-				System.out.println("Seguretat corresponent a l'atracció seleccionada. ");
-			}else {
-				System.out.println("Seguretat no corresponent a l'atracció seleccionada.");
-			}
+			this.seguretatAtraccio = ESeguretatAtraccio.SENSE_PROTECCIO;
 			break;
 		case HURAKAN_CONDOR:
-			if(seguretatAtraccio == ESeguretatAtraccio.PROTECCIO_TOTAL) {
-				this.seguretatAtraccio = seguretatAtraccio;
-				System.out.println("Seguretat corresponent a l'atracció seleccionada. ");
-			}else {
-				System.out.println("Seguretat no corresponent a l'atracció seleccionada.");
-			}
+			this.seguretatAtraccio = ESeguretatAtraccio.PROTECCIO_TOTAL;
 			break;
 		case STAMPIDA:
-			if(seguretatAtraccio == ESeguretatAtraccio.PROTECCIO_PARCIAL) {
-				this.seguretatAtraccio = seguretatAtraccio;
-				System.out.println("Seguretat corresponent a l'atracció seleccionada. ");
-			}else {
-				System.out.println("Seguretat no corresponent a l'atracció seleccionada.");
-			}
+			this.seguretatAtraccio = ESeguretatAtraccio.PROTECCIO_PARCIAL;
 			break;
 			default:
-				System.out.println("Describint la seguretat de cada atracció.");
+				this.seguretatAtraccio = ESeguretatAtraccio.PROTECCIO_PARCIAL;
 		}
 	}
 	
+	//CompareTo que s'utilitza al main per a la ordenació de les atraccions.
 	@Override
 	public int compareTo(Atraccio a){
-		return this.seguretatAtraccio.compareTo(a.seguretatAtraccio);
-	}
-	
-	public boolean AtraccioPlena (int capacitatGent) {
-		return quantitatGent >= capacitatGent;
+		int result=0;
+		if(this.quantitatGent<a.quantitatGent) {
+			result = -1;
+		}else if(this.quantitatGent>a.quantitatGent) {
+			result = 1;
+		}else {
+			if(this.quantitatGent<a.quantitatGent) {
+				result=-1;
+			}else if(this.quantitatGent>a.quantitatGent){
+				result=1;
+			}else {
+				result=0;
+			}
+		}
+		return result;
 	}
 }

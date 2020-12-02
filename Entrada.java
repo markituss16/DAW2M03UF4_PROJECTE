@@ -44,7 +44,7 @@ public abstract class Entrada implements Cloneable {
     @Override
     public String toString() {
         return "Ticket comprat: " + getEstatCompra() + "\nEl número de ticket és " + getIdEntrada()
-                + ", la categoria és " + getCategoriaEntrada() + ". Costa" + getPreu() + "€";
+                + ", la categoria és " + getCategoriaEntrada() + ". Costa " + getPreu() + "€";
     }
     
     @Override
