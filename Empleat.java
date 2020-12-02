@@ -4,8 +4,8 @@ public class Empleat extends Persona implements IEmpleat{
 	private int idEmpleat;
 	private ESalariEmpleat salari;
 	
-	public Empleat(String nom, String cognom, String DNI, int telefon, int idEmpleat, ESalariEmpleat salari,double altura) {
-		super(nom, cognom, DNI, telefon,altura);
+	public Empleat(String nom, String cognom, String DNI, int telefon, int idEmpleat, ESalariEmpleat salari) {
+		super(nom, cognom, DNI, telefon);
 		this.idEmpleat = idEmpleat;
 		this.salari = salari;
 	}
@@ -28,10 +28,14 @@ public class Empleat extends Persona implements IEmpleat{
 
 	@Override
 	public String toString() {
-		return "Empleat [idEmpleat=" + idEmpleat + ", salari=" + salari + ", tipusTreball=" + ", nom="
-				+ nom + ", cognom=" + cognom + ", DNI=" + DNI + ", telefon=" + telefon + ", altura=" + altura + "]";
+		return "L'empleat/a " + nom + " " + cognom + " té DNI " + DNI + " i telèfon " + telefon +
+				". El seu identificador és " + idEmpleat + ", i té un salari de tipus " + salari;
 	}
 
+    /**
+     * Metodes de la interficie creada.
+     */
+	
 	@Override
 	public String comprovarSeguretat(Atraccio a){
         return a.getSeguretatAtraccio().toString();
