@@ -297,36 +297,31 @@ public class Principal {
             switch (opcio) {
                 //Execució de totes en cada cas seleccionat
 
-                case 1:
-                    
+                case 1:                   
                     consultarEntrades(p.getEntrades());
                     System.out.println("\nVols continuar? Entra 'y' o 'n'.");
                     resposta = input.next();
                     break;
 
-                case 2:
-                    
+                case 2:                  
                     modificarEntrada(p, p.getEntrades());
                     System.out.println("Vols continuar? Entra 'y' o 'n'.");
                     resposta = input.next();
                     break;
 
-                case 3:
-                    
+                case 3:                   
                     eliminarEntrada(p, p.getEntrades());
                     System.out.println("Vols continuar? Entra 'y' o 'n'.");
                     resposta = input.next();
                     break;
 
-                case 4:
-                    
+                case 4:                   
                     crearEntrada(p, p.getEntrades());
                     System.out.println("Vols continuar? Entra 'y' o 'n'.");
                     resposta = input.next();
                     break;
 
-                case 5:
-                    
+                case 5:                   
                     consultarVisitant(p.getVisitants());
                     System.out.println("Vols continuar? Entra 'y' o 'n'.");
                     resposta = input.next();
@@ -354,8 +349,12 @@ public class Principal {
         }while(resposta.equalsIgnoreCase("y"));
         }
     
+    /**
+     * Funció on es consulten les entrades.
+     * Es llegeixen totes les entrades creades i es mostra la seva info.
+     */ 
     public static void consultarEntrades(ArrayList<Entrada> entrades){
-        System.out.println("Llita d'Entrades: ");
+        System.out.println("Llista d'Entrades: ");
         for(int i=0; i<entrades.size(); i++){
             System.out.println(entrades.get(i).toString());
         }
